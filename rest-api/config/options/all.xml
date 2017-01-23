@@ -5,7 +5,7 @@
   <!-- Limit all searches to this additional query -->
   <additional-query>
     <cts:collection-query xmlns:cts="http://marklogic.com/cts">
-      <cts:uri>data</cts:uri>
+      <cts:uri>mandiri-custcc</cts:uri>
     </cts:collection-query>
   </additional-query>
 

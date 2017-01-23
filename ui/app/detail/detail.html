@@ -1,22 +1,82 @@
 <div class="row detail">
+
+ <h1>ctrl.type : {{ctrl.type}}</h1>
+ <!--h2>json : {{ctrl.json}}</h2-->
+ <!-- h3>xml : {{ctrl.xml}}</h3-->
+ <h1>Application No : {{ctrl.json.wlcustcc.application_no}}</h1>
   <div class="col-sm-8">
-    <!-- note -->
+		  	<table class="table table-bordered table-hover table-striped table-condensed">
+	<thead></thead>
+	<tbody>
+
+		<tr>
+			<th>Account Type</th>
+			<th>{{ctrl.json.wlcustcc.account_type_desc}}</th>
+		</tr>
+		<tr>
+			<th>Account Limit</th>
+			<th>{{ctrl.json.wlcustcc.account_limit | currency}}</th>
+		</tr>
+		<tr>
+			<th>Credit Card Account Limit</th>
+			<th>{{ctrl.json.wlcustcc.credit_card_account_limit | currency}}</th>
+		</tr>
+		<tr>
+			<th>Product Detail Code</th>
+			<th>{{ctrl.json.wlcustcc.product_detail_code}}</th>
+		</tr>
+		<tr>
+			<th>Service Program ID</th>
+			<th>{{ctrl.json.wlcustcc.service_program_id}}</th>
+		</tr>
+		<tr>
+			<th>Authorization Amount</th>
+			<th>{{ctrl.json.wlcustcc.authorization_amount | currency}}</th>
+		</tr>
+		<tr>
+			<th>Approve Date</th>
+			<th>{{ctrl.json.wlcustcc.approve_date | date}}</th>
+		</tr>
+		<tr>
+			<th>Current Balance</th>
+			<th>{{ctrl.json.wlcustcc.current_balance | currency}}</th>
+		</tr>
+		<tr>
+			<th>Highest Balance</th>
+			<th>{{ctrl.json.wlcustcc.highest_balance | currency}}</th>
+		</tr>
+		<tr>
+			<th>Closing Balance</th>
+			<th>{{ctrl.json.wlcustcc.closing_balance | currency}}</th>
+		</tr>
+		<tr>
+			<th>Amount Due</th>
+			<th>{{ctrl.json.wlcustcc.amount_due | currency}}</th>
+		</tr>
+		<tr>
+			<th>Latest Transaction</th>
+			<th>{{ctrl.json.wlcustcc.latest_transaction | currency}}</th>
+		</tr>
+	</tbody>
+ </table>
+
+	<!-- note -->
     <uib-tabset type="pills">
       <uib-tab ng-if="ctrl.type==='json'">
         <uib-tab-heading>JSON</uib-tab-heading>
-        <div class="col-sm-9">
+        <div class="col-sm-12">
           <json-explorer data="ctrl.json"></json-explorer>
         </div>
       </uib-tab>
       <uib-tab ng-if="ctrl.type==='xml' || ctrl.type==='txt'">
         <uib-tab-heading >XML</uib-tab-heading>
-        <div class="col-sm-9">
-          <pre class="pre-xml">{{ctrl.xml}}</pre>
+        <div class="col-sm-12">
+          <pre class="pre-xml">{{ctrl.xml}}</pre>		  
         </div>
       </uib-tab>
       <uib-tab ng-if="ctrl.type==='binary'">
         <uib-tab-heading >Binary</uib-tab-heading>
-        <div class="col-sm-9">
+        <div class="col-sm-12">
           <a target="_blank" ng-href="/v1/documents?uri={{ctrl.uri}}&transform=download"
              class="btn btn-default">Download</a>
         </div>
