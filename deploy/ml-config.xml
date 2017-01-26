@@ -297,6 +297,20 @@
         <range-path-index>
           <scalar-type>string</scalar-type>
           <collation>http://marklogic.com/collation/codepoint</collation>
+          <path-expression>account_type_desc</path-expression>
+          <range-value-positions>false</range-value-positions>
+          <invalid-values>reject</invalid-values>
+        </range-path-index>
+        <range-path-index>
+          <scalar-type>string</scalar-type>
+          <collation>http://marklogic.com/collation/codepoint</collation>
+          <path-expression>credit_card_no</path-expression>
+          <range-value-positions>false</range-value-positions>
+          <invalid-values>reject</invalid-values>
+        </range-path-index>
+        <range-path-index>
+          <scalar-type>string</scalar-type>
+          <collation>http://marklogic.com/collation/codepoint</collation>
           <path-expression>eyeColor</path-expression>
           <range-value-positions>false</range-value-positions>
           <invalid-values>reject</invalid-values>

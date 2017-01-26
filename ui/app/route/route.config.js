@@ -120,9 +120,9 @@
         resolve: {
           doc: function(MLRest, $stateParams) {
             var uri = $stateParams.uri;
-			var params = { format: 'xml' , transform :'mandiri-to-html'};
+			var params = { format: 'xml'};
 			if (uri.endsWith('.json')){
-				params = { format: 'json'}
+				params = { format: 'json', transform :'mandiri-to-html'}
 			}
 				
             return MLRest.getDocument(uri, params).then(function(response) {

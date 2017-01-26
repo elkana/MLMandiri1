@@ -1,65 +1,97 @@
 <div class="row detail">
 
- <h1>ctrl.type : {{ctrl.type}}</h1>
+ <!--h1>ctrl.type : {{ctrl.type}}</h1-->
  <!--h2>json : {{ctrl.json}}</h2-->
  <!-- h3>xml : {{ctrl.xml}}</h3-->
- <h1>Application No : {{ctrl.json.wlcustcc.application_no}}</h1>
+ <h1>Customer Name : {{ctrl.json.account_cust_name}}</h1>
   <div class="col-sm-8">
 		  	<table class="table table-bordered table-hover table-striped table-condensed">
 	<thead></thead>
 	<tbody>
 
+	
 		<tr>
-			<th>Account Type</th>
-			<th>{{ctrl.json.wlcustcc.account_type_desc}}</th>
+			<td>Application No</td>
+			<td>{{ctrl.json.application_no}}</td>
 		</tr>
 		<tr>
-			<th>Account Limit</th>
-			<th>{{ctrl.json.wlcustcc.account_limit | currency}}</th>
+			<td>Account Type</td>
+			<td>{{ctrl.json.account_type_desc}}</td>
 		</tr>
 		<tr>
-			<th>Credit Card Account Limit</th>
-			<th>{{ctrl.json.wlcustcc.credit_card_account_limit | currency}}</th>
+			<td>Account Limit</td>
+			<td>{{ctrl.json.account_limit | currency}}</td>
 		</tr>
 		<tr>
-			<th>Product Detail Code</th>
-			<th>{{ctrl.json.wlcustcc.product_detail_code}}</th>
+			<td>Credit Card No</td>
+			<td>{{ctrl.json.credit_card_no}}</td>
 		</tr>
 		<tr>
-			<th>Service Program ID</th>
-			<th>{{ctrl.json.wlcustcc.service_program_id}}</th>
+			<td>Credit Card Account Limit</td>
+			<td>{{ctrl.json.credit_card_account_limit | currency}}</td>
 		</tr>
 		<tr>
-			<th>Authorization Amount</th>
-			<th>{{ctrl.json.wlcustcc.authorization_amount | currency}}</th>
+			<td>Product Detail Code</td>
+			<td>{{ctrl.json.product_detail_code}}</td>
 		</tr>
 		<tr>
-			<th>Approve Date</th>
-			<th>{{ctrl.json.wlcustcc.approve_date | date}}</th>
+			<td>Service Program ID</td>
+			<td>{{ctrl.json.service_program_id}}</td>
 		</tr>
 		<tr>
-			<th>Current Balance</th>
-			<th>{{ctrl.json.wlcustcc.current_balance | currency}}</th>
+			<td>Authorization Amount</td>
+			<td>{{ctrl.json.authorization_amount | currency}}</td>
 		</tr>
 		<tr>
-			<th>Highest Balance</th>
-			<th>{{ctrl.json.wlcustcc.highest_balance | currency}}</th>
+			<td>Approve Date</td>
+			<td>{{ctrl.json.approve_date | date}}</td>
 		</tr>
 		<tr>
-			<th>Closing Balance</th>
-			<th>{{ctrl.json.wlcustcc.closing_balance | currency}}</th>
+			<td>Current Balance</td>
+			<td>{{ctrl.json.current_balance | currency}}</td>
 		</tr>
 		<tr>
-			<th>Amount Due</th>
-			<th>{{ctrl.json.wlcustcc.amount_due | currency}}</th>
+			<td>Highest Balance</td>
+			<td>{{ctrl.json.highest_balance | currency}}</td>
 		</tr>
 		<tr>
-			<th>Latest Transaction</th>
-			<th>{{ctrl.json.wlcustcc.latest_transaction | currency}}</th>
+			<td>Closing Balance</td>
+			<td>{{ctrl.json.closing_balance | currency}}</td>
+		</tr>
+		<tr>
+			<td>Amount Due</td>
+			<td>{{ctrl.json.amount_due | currency}}</td>
+		</tr>
+		<tr>
+			<td>Latest Transaction</td>
+			<td>{{ctrl.json.latest_transaction | currency}}</td>
 		</tr>
 	</tbody>
  </table>
-
+<hr>
+ <h3>Transactions:</h3>
+	<table class="table table-bordered table-hover table-striped table-condensed">
+	<thead>
+		<tr>
+			<th>Batch No</th>
+			<th>Merchant Code</th>
+			<th>Amount</th>
+			<th>Country</th>
+			<th>Currency</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="trans in ctrl.json.transactions">
+			<td ng-bind="trans.batch_no">
+			<td ng-bind="trans.merchant_code">
+			<td ng-bind="trans.transaction_amount | currency">
+			<td ng-bind="trans.country_code">
+			<td ng-bind="trans.source_currency_code">
+			<td ng-bind="trans.datetime | date">
+		</tr>
+	</tbody>
+	</table>
 	<!-- note -->
     <uib-tabset type="pills">
       <uib-tab ng-if="ctrl.type==='json'">

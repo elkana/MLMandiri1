@@ -1,11 +1,11 @@
 -input_file_path
-data/data-sample/WebLogic_Customer_CCdev
+data/data-sample/EDCTransaksi
 -input_file_type
 delimited_text
 -output_permissions
 mlmandiri1-role,read,mlmandiri1-role,update
 -output_collections
-mandiri-custcc
+mandiri-edctrans
 -output_uri_suffix 
 ".json"
 -document_type
@@ -13,6 +13,6 @@ json
 -generate_uri
 true
 -output_uri_replace
-".*data-sample,'/mandiri-custcc'"
+".*data-sample,'/mandiri-edctrans'"
 -content_encoding
 ISO-8859-1

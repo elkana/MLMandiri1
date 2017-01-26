@@ -11,8 +11,12 @@
     var ctrl = this;
 
     angular.extend(ctrl, {
+      account_type_desc: top10Chart('Account Type', 'pie', 'account_type_desc', 'Account Type', 50),
+      creditCardNo: top10Chart('Credit Card', 'bar', 'credit_card_no', 'Credit Card', 50),
       eyeColor: top10Chart('Eye Color', 'pie', 'eyeColor', 'Eye Color', 50),
       gender: top10Chart('Gender', 'bar', 'gender', 'Gender', 50),
+      combinedCC: top10Chartv2('Account Type vs Credit Card', 'column', 'credit_card_no', 'Credit Card',
+                  'account_type_desc', 'Account Type'),
       combined: top10Chartv2('Eye Color vs Gender', 'column', 'eyeColor', 'Eye Color',
                   'gender', 'Gender')
     });

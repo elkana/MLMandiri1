@@ -1,23 +1,32 @@
 <section class="content-header">
-  <h1>Successful Deployment! <small>Slush Generator</small></h1>
+  <h1>Successful Marklogic! <small>Search Engine Database</small></h1>
 </section>
 
+<div class="row">
+  <div class="col-md-12">
+    <ml-input qtext="ctrl.qtext" search="ctrl.search(qtext)" suggest="ctrl.suggest(val)" template="fa" class="search"></ml-input>
+  </div>
+</div>
+
 <section class="content">
-  <content-box box-bordered="true" box-title="Example Charts">
+  <content-box box-bordered="true" box-title="Charts">
     <div class="row" ng-if="!rootCtrl.currentUser.authenticated">
       <div class="col-sm-12">
-        <uib-alert type="warning"><a ui-sref="root.login">Sign in</a> to see some nice charts</uib-alert>
+        <uib-alert type="warning"><a ui-sref="root.login">Sign in</a> to see some charts</uib-alert>
       </div>
     </div>
     <div class="row" ng-if="rootCtrl.currentUser.authenticated">
       <div class="col-sm-3 col-sm-offset-1">
+        <ml-highchart highchart-config="ctrl.account_type_desc" ml-search="ctrl.mlSearch"></ml-highchart>
+      </div>
+      <!--div class="col-sm-3">
         <ml-highchart highchart-config="ctrl.eyeColor" ml-search="ctrl.mlSearch"></ml-highchart>
+      </div-->
+      <div class="col-sm-3">
+        <ml-highchart highchart-config="ctrl.creditCardNo" ml-search="ctrl.mlSearch"></ml-highchart>
       </div>
       <div class="col-sm-3">
-        <ml-highchart highchart-config="ctrl.gender" ml-search="ctrl.mlSearch"></ml-highchart>
-      </div>
-      <div class="col-sm-3">
-        <ml-highchart highchart-config="ctrl.combined" ml-search="ctrl.mlSearch"></ml-highchart>
+        <ml-highchart highchart-config="ctrl.combinedCC" ml-search="ctrl.mlSearch"></ml-highchart>
       </div>
     </div>
   </content-box>
